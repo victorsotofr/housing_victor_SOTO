@@ -4,7 +4,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
 const mockData = [
   { month: "Jan", occupancy: 85, revenue: 45000 },
@@ -57,9 +57,37 @@ export function PropertyAnalytics() {
                 fill="#6366f1"
                 radius={[4, 4, 0, 0]}
               />
-              <ChartTooltip>
-                <ChartTooltipContent />
-              </ChartTooltip>
+              <Tooltip
+                content={({ active, payload, label }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="rounded-lg border bg-background p-2 shadow-sm">
+                        <div className="grid gap-2">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="font-medium">{label}</span>
+                          </div>
+                          {payload.map((entry, index) => (
+                            <div
+                              key={`item-${index}`}
+                              className="flex items-center justify-between gap-2"
+                            >
+                              <span className="text-muted-foreground">
+                                {entry.name === "occupancy" ? "Occupancy Rate" : "Monthly Revenue"}:
+                              </span>
+                              <span className="font-medium">
+                                {entry.name === "occupancy"
+                                  ? `${entry.value}%`
+                                  : `$${entry.value.toLocaleString()}`}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                }}
+              />
             </BarChart>
           </ResponsiveContainer>
         </ChartContainer>
