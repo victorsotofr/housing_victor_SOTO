@@ -1,7 +1,17 @@
 import { PropertyCard } from "@/components/PropertyCard";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarChart, Building2, MessageSquare, Users } from "lucide-react";
 import type { Apartment } from "@/types/apartment";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const mockProperties: Apartment[] = [
   {
@@ -22,6 +32,12 @@ const mockProperties: Apartment[] = [
   },
 ];
 
+const recentApplications = [
+  { id: 1, tenant: "Sarah Johnson", property: "123 Main St", status: "Pending Review", date: "2024-03-15" },
+  { id: 2, tenant: "Michael Chen", property: "456 Park Ave", status: "Approved", date: "2024-03-14" },
+  { id: 3, tenant: "Emma Davis", property: "789 Oak Rd", status: "Under Review", date: "2024-03-13" },
+];
+
 const AgencyDashboard = () => {
   return (
     <SidebarProvider>
@@ -30,13 +46,91 @@ const AgencyDashboard = () => {
         <main className="flex-1 p-8">
           <div className="mb-8">
             <h1 className="text-3xl font-bold">Agency Portfolio</h1>
-            <p className="text-gray-600">Manage all properties</p>
+            <p className="text-gray-600">Manage properties and tenants</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockProperties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
+
+          {/* Analytics Overview */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <Card>
+              <CardContent className="flex items-center p-6">
+                <Building2 className="h-8 w-8 text-primary mr-4" />
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Total Properties</p>
+                  <h3 className="text-2xl font-bold">24</h3>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="flex items-center p-6">
+                <Users className="h-8 w-8 text-primary mr-4" />
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Active Tenants</p>
+                  <h3 className="text-2xl font-bold">18</h3>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="flex items-center p-6">
+                <MessageSquare className="h-8 w-8 text-primary mr-4" />
+                <div>
+                  <p className="text-sm font-medium text-gray-600">New Messages</p>
+                  <h3 className="text-2xl font-bold">7</h3>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="flex items-center p-6">
+                <BarChart className="h-8 w-8 text-primary mr-4" />
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Occupancy Rate</p>
+                  <h3 className="text-2xl font-bold">75%</h3>
+                </div>
+              </CardContent>
+            </Card>
           </div>
+
+          {/* Recent Applications */}
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle>Recent Applications</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Tenant</TableHead>
+                    <TableHead>Property</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Date</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {recentApplications.map((application) => (
+                    <TableRow key={application.id}>
+                      <TableCell className="font-medium">{application.tenant}</TableCell>
+                      <TableCell>{application.property}</TableCell>
+                      <TableCell>{application.status}</TableCell>
+                      <TableCell>{application.date}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+
+          {/* Property Listings */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Property Listings</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {mockProperties.map((property) => (
+                  <PropertyCard key={property.id} property={property} />
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </main>
       </div>
     </SidebarProvider>
