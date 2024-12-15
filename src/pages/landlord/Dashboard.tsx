@@ -38,10 +38,10 @@ const LandlordDashboard = () => {
   const [isAddPropertyOpen, setIsAddPropertyOpen] = useState(false);
 
   const handleAddProperty = (propertyData: any) => {
-    const newProperty = {
+    const newProperty: Apartment = {
       id: (properties.length + 1).toString(),
       address: propertyData.title,
-      status: "vacant",
+      status: "vacant" as const,
       rentAmount: Number(propertyData.price),
       imageUrl: propertyData.images[0] || "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
     };
