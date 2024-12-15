@@ -12,6 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { PropertyAnalytics } from "@/components/analytics/PropertyAnalytics";
 
 const mockProperties: Apartment[] = [
   {
@@ -87,6 +88,11 @@ const AgencyDashboard = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Analytics Charts */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <PropertyAnalytics />
           </div>
 
           {/* Recent Applications */}
