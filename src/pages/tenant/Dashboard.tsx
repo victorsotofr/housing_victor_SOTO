@@ -1,105 +1,146 @@
 import { useState } from "react";
-import { PropertyCard } from "@/components/PropertyCard";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
-import { MapPin, Search, Sliders } from "lucide-react";
-import Map from "@/components/Map";
-import type { Apartment } from "@/types/apartment";
-
-const mockProperties: Apartment[] = [
-  {
-    id: "1",
-    address: "123 Main St, Suite 4B",
-    status: "vacant",
-    rentAmount: 2500,
-    imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60",
-    location: { lat: 40.7128, lng: -74.0060 }
-  },
-  {
-    id: "2",
-    address: "456 Park Ave, Apt 7A",
-    status: "vacant",
-    rentAmount: 3000,
-    imageUrl: "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
-    location: { lat: 40.7589, lng: -73.9851 }
-  },
-];
+import { Progress } from "@/components/ui/progress";
+import { useToast } from "@/components/ui/use-toast";
+import {
+  Bell,
+  FileText,
+  CreditCard,
+  MessageSquare,
+  Wrench,
+  Info,
+  CheckCircle,
+  Clock,
+} from "lucide-react";
 
 const TenantDashboard = () => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(5000);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [showFilters, setShowFilters] = useState(false);
+  const { toast } = useToast();
+  const [rentProgress] = useState(75);
 
-  const filteredProperties = mockProperties.filter(property => {
-    const matchesPrice = property.rentAmount >= minPrice && property.rentAmount <= maxPrice;
-    const matchesSearch = property.address.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesPrice && matchesSearch;
-  });
+  const quickActions = [
+    { icon: CreditCard, label: "Pay Rent", action: () => toast({ title: "Redirecting to payment portal..." }) },
+    { icon: Wrench, label: "Report Issue", action: () => toast({ title: "Opening maintenance request form..." }) },
+    { icon: FileText, label: "View Lease", action: () => toast({ title: "Opening lease document..." }) },
+  ];
+
+  const recentNotifications = [
+    { icon: Bell, message: "Rent due in 5 days", type: "warning" },
+    { icon: Wrench, message: "Maintenance request updated", type: "info" },
+    { icon: MessageSquare, message: "New message from landlord", type: "message" },
+  ];
+
+  const maintenanceRequests = [
+    { id: 1, issue: "Plumbing repair", status: "In Progress", date: "2024-03-15" },
+    { id: 2, issue: "HVAC maintenance", status: "Completed", date: "2024-03-10" },
+  ];
 
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full">
+      <div className="min-h-screen flex w-full bg-gray-50">
         <DashboardSidebar />
         <main className="flex-1 p-8">
-          <div className="mb-8 space-y-4">
-            <h1 className="text-3xl font-bold">Find Your Next Home</h1>
-            
-            <div className="flex gap-4 items-center">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <Input
-                  placeholder="Search by location..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
+          <div className="max-w-7xl mx-auto space-y-8">
+            {/* Welcome Section */}
+            <div className="flex justify-between items-center">
+              <div>
+                <h1 className="text-3xl font-bold">Welcome Back!</h1>
+                <p className="text-gray-600">Here's what's happening with your rental</p>
               </div>
-              <Button
-                variant="outline"
-                onClick={() => setShowFilters(!showFilters)}
-                className="gap-2"
-              >
-                <Sliders className="h-4 w-4" />
-                Filters
+              <Button variant="outline" className="gap-2">
+                <Bell className="h-4 w-4" />
+                Notifications
               </Button>
             </div>
 
-            {showFilters && (
-              <div className="p-4 bg-white rounded-lg shadow space-y-4">
-                <h3 className="font-semibold">Price Range</h3>
-                <div className="space-y-6">
-                  <Slider
-                    defaultValue={[minPrice, maxPrice]}
-                    max={10000}
-                    step={100}
-                    onValueChange={([min, max]) => {
-                      setMinPrice(min);
-                      setMaxPrice(max);
-                    }}
-                  />
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>${minPrice}</span>
-                    <span>${maxPrice}</span>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+            {/* Quick Actions */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {quickActions.map((action, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <Button
+                      variant="ghost"
+                      className="w-full h-full flex flex-col items-center gap-3 py-6"
+                      onClick={action.action}
+                    >
+                      <action.icon className="h-8 w-8" />
+                      <span className="font-medium">{action.label}</span>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="space-y-6">
-              <div className="h-[400px] rounded-lg overflow-hidden">
-                <Map properties={filteredProperties} />
-              </div>
-              <div className="space-y-4">
-                {filteredProperties.map((property) => (
-                  <PropertyCard key={property.id} property={property} />
-                ))}
-              </div>
+            {/* Main Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Rent Status */}
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-lg font-semibold">Rent Status</h3>
+                    <span className="text-sm text-gray-500">Due in 5 days</span>
+                  </div>
+                  <Progress value={rentProgress} className="h-2" />
+                  <div className="flex justify-between text-sm">
+                    <span>Monthly Rent: $2,500</span>
+                    <span className="text-green-600">Paid: $1,875</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Recent Notifications */}
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <h3 className="text-lg font-semibold">Recent Updates</h3>
+                  <div className="space-y-3">
+                    {recentNotifications.map((notification, index) => (
+                      <div key={index} className="flex items-center gap-3 text-sm">
+                        <notification.icon className="h-4 w-4 text-primary" />
+                        <span>{notification.message}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Maintenance Requests */}
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <h3 className="text-lg font-semibold">Maintenance Requests</h3>
+                  <div className="space-y-3">
+                    {maintenanceRequests.map((request) => (
+                      <div key={request.id} className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          {request.status === "Completed" ? (
+                            <CheckCircle className="h-4 w-4 text-green-500" />
+                          ) : (
+                            <Clock className="h-4 w-4 text-yellow-500" />
+                          )}
+                          <span>{request.issue}</span>
+                        </div>
+                        <span className="text-sm text-gray-500">{request.status}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Tips Section */}
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Info className="h-5 w-5 text-primary" />
+                    <h3 className="text-lg font-semibold">Helpful Tips</h3>
+                  </div>
+                  <div className="space-y-2 text-sm text-gray-600">
+                    <p>• Set up automatic rent payments to avoid late fees</p>
+                    <p>• Document any maintenance issues with photos</p>
+                    <p>• Keep your contact information up to date</p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </main>
