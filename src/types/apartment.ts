@@ -7,6 +7,9 @@ export interface Apartment {
   tenantName?: string;
   leaseEnd?: string;
   description?: string;
-  location?: string;
+  location?: {
+    lat: number;
+    lng: number;
+  };
   images?: string[];
 }
