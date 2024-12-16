@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Home, User, ArrowRight, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Building, Home, User, ArrowRight, Facebook, Twitter, Linkedin, ChevronDown, ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -13,27 +13,31 @@ const Index = () => {
       title: "Tenant",
       description: "Manage your rental with ease",
       icon: User,
-      path: "/tenant/dashboard",
+      path: "/tenant",
       gradient: "from-blue-500 to-blue-600",
     },
     {
       title: "Landlord",
       description: "Simplify your property management",
       icon: Home,
-      path: "/landlord/dashboard",
+      path: "/landlord",
       gradient: "from-purple-500 to-purple-600",
     },
     {
       title: "Agency",
       description: "Efficiently handle all your rentals in one place",
       icon: Building,
-      path: "/agency/dashboard",
+      path: "/agency",
       gradient: "from-emerald-500 to-emerald-600",
     },
   ];
 
   const handleRoleSelect = (path: string) => {
     navigate(path);
+  };
+
+  const scrollToRoles = () => {
+    document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -50,14 +54,24 @@ const Index = () => {
           <p className="mt-2 text-gray-500 dark:text-gray-400 animate-fade-in">
             Whether you're a tenant, landlord, or agency, we've got you covered!
           </p>
-          <Button
-            className="mt-8 animate-fade-in hover:scale-105 transition-transform"
-            size="lg"
-            onClick={() => document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Get Started
-            <ArrowRight className="ml-2" />
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <Button
+              className="animate-fade-in hover:scale-105 transition-transform"
+              size="lg"
+              onClick={scrollToRoles}
+            >
+              Get Started
+              <ChevronDown className="ml-2" />
+            </Button>
+            <Button
+              variant="outline"
+              className="animate-fade-in hover:scale-105 transition-transform"
+              size="lg"
+            >
+              Learn More
+              <ExternalLink className="ml-2" />
+            </Button>
+          </div>
         </div>
 
         {/* Role Selection */}
@@ -89,7 +103,7 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-50 dark:bg-gray-900 py-12 mt-auto">
+      <footer className="bg-gray-50 dark:bg-gray-900 py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
