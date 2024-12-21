@@ -18,7 +18,9 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Tenant</h3>
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" alt="Tenant" className="w-full h-48 object-cover rounded-lg" />
+                <div className="h-48 flex items-center justify-center bg-blue-50 rounded-lg">
+                  <span className="text-blue-600 text-lg">Tenant Portal</span>
+                </div>
               </div>
             </Link>
 
@@ -29,7 +31,9 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Landlord</h3>
-                <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b" alt="Landlord" className="w-full h-48 object-cover rounded-lg" />
+                <div className="h-48 flex items-center justify-center bg-green-50 rounded-lg">
+                  <span className="text-green-600 text-lg">Landlord Portal</span>
+                </div>
               </div>
             </Link>
 
@@ -40,7 +44,9 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Agency</h3>
-                <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334" alt="Agency" className="w-full h-48 object-cover rounded-lg" />
+                <div className="h-48 flex items-center justify-center bg-purple-50 rounded-lg">
+                  <span className="text-purple-600 text-lg">Agency Portal</span>
+                </div>
               </div>
             </Link>
           </div>
