@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Index = () => {
   return (
@@ -13,39 +14,39 @@ const Index = () => {
             RentEasy
           </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-in">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 animate-fade-in">
             <Link 
               to="/tenant"
-              className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+              className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center"
             >
-              <div className="text-center">
-                <h3 className="text-lg font-medium text-gray-800">Tenant</h3>
-                <div className="mt-2 h-24 flex items-center justify-center bg-blue-50 rounded-md">
-                  <span className="text-blue-600">Portal</span>
+              <h3 className="text-xl font-bold text-gray-800 mb-6 uppercase tracking-wide">Tenant</h3>
+              <div className="relative">
+                <div className="w-32 h-32 bg-blue-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
+                  <ArrowRight className="w-8 h-8 text-blue-600 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </Link>
 
             <Link 
               to="/landlord"
-              className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+              className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center"
             >
-              <div className="text-center">
-                <h3 className="text-lg font-medium text-gray-800">Landlord</h3>
-                <div className="mt-2 h-24 flex items-center justify-center bg-green-50 rounded-md">
-                  <span className="text-green-600">Portal</span>
+              <h3 className="text-xl font-bold text-gray-800 mb-6 uppercase tracking-wide">Landlord</h3>
+              <div className="relative">
+                <div className="w-32 h-32 bg-green-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+                  <ArrowRight className="w-8 h-8 text-green-600 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </Link>
 
             <Link 
               to="/agency"
-              className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+              className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center"
             >
-              <div className="text-center">
-                <h3 className="text-lg font-medium text-gray-800">Agency</h3>
-                <div className="mt-2 h-24 flex items-center justify-center bg-purple-50 rounded-md">
-                  <span className="text-purple-600">Portal</span>
+              <h3 className="text-xl font-bold text-gray-800 mb-6 uppercase tracking-wide">Agency</h3>
+              <div className="relative">
+                <div className="w-32 h-32 bg-purple-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
+                  <ArrowRight className="w-8 h-8 text-purple-600 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </Link>
