@@ -5,47 +5,47 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Main Content */}
       <main className="flex-grow flex flex-col items-center justify-center p-4">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-fade-in mb-8">
-            RentEasy
+        <div className="text-center max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">
+            GetARent.com
           </h1>
+          <p className="text-lg text-gray-600 mb-12">
+            RentEasy
+          </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-in">
             <Link 
               to="/tenant"
-              className="group relative overflow-hidden rounded-xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10">
-                <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Tenant</h3>
-                <div className="h-48 flex items-center justify-center bg-blue-50 rounded-lg">
-                  <span className="text-blue-600 text-lg">Tenant Portal</span>
+              <div className="text-center">
+                <h3 className="text-lg font-medium text-gray-800">Tenant</h3>
+                <div className="mt-2 h-24 flex items-center justify-center bg-blue-50 rounded-md">
+                  <span className="text-blue-600">Portal</span>
                 </div>
               </div>
             </Link>
 
             <Link 
               to="/landlord"
-              className="group relative overflow-hidden rounded-xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10">
-                <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Landlord</h3>
-                <div className="h-48 flex items-center justify-center bg-green-50 rounded-lg">
-                  <span className="text-green-600 text-lg">Landlord Portal</span>
+              <div className="text-center">
+                <h3 className="text-lg font-medium text-gray-800">Landlord</h3>
+                <div className="mt-2 h-24 flex items-center justify-center bg-green-50 rounded-md">
+                  <span className="text-green-600">Portal</span>
                 </div>
               </div>
             </Link>
 
             <Link 
               to="/agency"
-              className="group relative overflow-hidden rounded-xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10">
-                <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Agency</h3>
-                <div className="h-48 flex items-center justify-center bg-purple-50 rounded-lg">
-                  <span className="text-purple-600 text-lg">Agency Portal</span>
+              <div className="text-center">
+                <h3 className="text-lg font-medium text-gray-800">Agency</h3>
+                <div className="mt-2 h-24 flex items-center justify-center bg-purple-50 rounded-md">
+                  <span className="text-purple-600">Portal</span>
                 </div>
               </div>
             </Link>
