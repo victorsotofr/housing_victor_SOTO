@@ -59,53 +59,26 @@ const Index = () => {
           {/* Social Media */}
           <div className="space-y-2">
             <h3 className="font-semibold text-gray-800">Connect With Us</h3>
-            <div className="flex space-x-3">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+            <ul className="space-y-1">
+              <li>
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-600 hover:text-blue-600"
                 >
-                  <path d="M9.197 24v-9.362H6.5V11.15h2.697V8.725c0-2.673 1.628-4.125 4.005-4.125 1.136 0 2.113.084 2.395.121v2.776l-1.645.001c-1.29 0-1.538.613-1.538 1.51v1.984h3.074l-.4 3.488H12.71V24" />
-                </svg>
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-500"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:contact@getarent.com" 
+                  className="text-gray-600 hover:text-blue-600"
                 >
-                  <path d="M20.452 20.452h-3.73v-6.433c0-1.533-.027-3.507-2.14-3.507-2.145 0-2.474 1.675-2.474 3.404v6.536h-3.728V9.75h3.583v1.457h.05c.498-.943 1.715-1.94 3.53-1.94 3.775 0 4.471 2.482 4.471 5.715v6.47zM5.337 8.293c-1.202 0-2.174-.972-2.174-2.174 0-1.202.972-2.175 2.174-2.175s2.174.973 2.174 2.175c0 1.202-.972 2.174-2.174 2.174zM6.667 20.452H3.91V9.75h2.757v10.702zM22.225 0H1.774C.8 0 0 .774 0 1.726v20.548C0 23.226.8 24 1.774 24h20.451c.973 0 1.774-.774 1.774-1.726V1.726C24 .774 23.198 0 22.225 0z" />
-                </svg>
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-pink-600"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M7.5 2C4.465 2 2 4.462 2 7.5v9c0 3.038 2.465 5.5 5.5 5.5h9c3.037 0 5.5-2.462 5.5-5.5v-9C22 4.462 19.537 2 16.5 2h-9zM12 6.572a5.429 5.429 0 110 10.858A5.429 5.429 0 0112 6.572zm0 1.856a3.573 3.573 0 100 7.144 3.573 3.573 0 000-7.144zm4.715-2.286a1.072 1.072 0 110 2.144 1.072 1.072 0 010-2.144z" />
-                </svg>
-              </a>
-            </div>
+                  Mail
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
