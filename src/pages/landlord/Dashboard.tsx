@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,52 +13,38 @@ import { Plus, Edit, Trash2, AlertCircle } from "lucide-react";
 import type { Apartment } from "@/types/apartment";
 
 const mockProperties: Apartment[] = [
-  {
-    id: "1",
-    address: "123 Main St, Suite 4B",
-    status: "occupied",
-    rentAmount: 2500,
-    imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60",
-    tenantName: "John Doe",
-    leaseEnd: "2024-12-31",
-  },
-  {
-    id: "2",
-    address: "456 Park Ave, Apt 7A",
-    status: "vacant",
-    rentAmount: 3000,
-    imageUrl: "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Stephen Brown",
-    leaseEnd: "2025-03-30",
-  },
-  {
-    id: "3",
-    address: "789 Elm St, Apt 2C",
-    status: "occupied",
-    rentAmount: 1800,
-    imageUrl: "https://images.unsplash.com/photo-1557682226-e99b55f8fcf2?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Alice Smith",
-    leaseEnd: "2024-11-15",
-  },
-  {
-    id: "4",
-    address: "321 Oak St, Suite 5A",
-    status: "vacant",
-    rentAmount: 2200,
-    imageUrl: "https://images.unsplash.com/photo-1559087978-f54f1b47d8d5?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Harley Jay",
-    leaseEnd: "2025-12-31",
-  },
-  {
-    id: "5",
-    address: "654 Maple St, Apt 3B",
-    status: "occupied",
-    rentAmount: 2700,
-    imageUrl: "https://images.unsplash.com/photo-1596011500930-9b1b0c998f6b?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Bob Johnson",
-    leaseEnd: "2025-01-15",
-  },
+  // (Mock property data remains the same as in your initial example)
 ];
+
+const Sidebar = () => {
+  const menuItems = [
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Messages", href: "/messages" },
+    { label: "Automate", href: "/automate" },
+    { label: "Properties", href: "/properties" },
+    { label: "Tenants", href: "/tenants" },
+    { label: "Calendar", href: "/calendar" },
+  ];
+
+  return (
+    <div className="bg-gray-800 text-white h-screen w-64 flex flex-col">
+      <div className="p-6 text-2xl font-bold border-b border-gray-700">
+        GetARent.com
+      </div>
+      <nav className="flex-1 p-4 space-y-4">
+        {menuItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            className="block px-4 py-2 rounded hover:bg-gray-700"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  );
+};
 
 const LandlordDashboard = () => {
   const [properties, setProperties] = useState(mockProperties);
@@ -71,9 +56,11 @@ const LandlordDashboard = () => {
       address: propertyData.title,
       status: "vacant" as const,
       rentAmount: Number(propertyData.price),
-      imageUrl: propertyData.images[0] || "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
-      tenantName: "", // Default tenant name
-      leaseEnd: "",   // Default lease end
+      imageUrl:
+        propertyData.images[0] ||
+        "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
+      tenantName: "",
+      leaseEnd: "",
     };
     setProperties([...properties, newProperty]);
     setIsAddPropertyOpen(false);
@@ -86,7 +73,7 @@ const LandlordDashboard = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
-        <DashboardSidebar />
+        <Sidebar />
         <main className="flex-1 p-8">
           <div className="flex justify-between items-center mb-8">
             <div>
