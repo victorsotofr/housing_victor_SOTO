@@ -29,6 +29,35 @@ const mockProperties: Apartment[] = [
     status: "vacant",
     rentAmount: 3000,
     imageUrl: "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
+    tenantName: "",
+    leaseEnd: "",
+  },
+  {
+    id: "3",
+    address: "789 Elm St, Apt 2C",
+    status: "occupied",
+    rentAmount: 1800,
+    imageUrl: "https://images.unsplash.com/photo-1557682226-e99b55f8fcf2?w=800&auto=format&fit=crop&q=60",
+    tenantName: "Alice Smith",
+    leaseEnd: "2024-11-15",
+  },
+  {
+    id: "4",
+    address: "321 Oak St, Suite 5A",
+    status: "vacant",
+    rentAmount: 2200,
+    imageUrl: "https://images.unsplash.com/photo-1559087978-f54f1b47d8d5?w=800&auto=format&fit=crop&q=60",
+    tenantName: "",
+    leaseEnd: "",
+  },
+  {
+    id: "5",
+    address: "654 Maple St, Apt 3B",
+    status: "occupied",
+    rentAmount: 2700,
+    imageUrl: "https://images.unsplash.com/photo-1596011500930-9b1b0c998f6b?w=800&auto=format&fit=crop&q=60",
+    tenantName: "Bob Johnson",
+    leaseEnd: "2025-01-15",
   },
 ];
 
@@ -43,6 +72,8 @@ const LandlordDashboard = () => {
       status: "vacant" as const,
       rentAmount: Number(propertyData.price),
       imageUrl: propertyData.images[0] || "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
+      tenantName: "", // Default tenant name
+      leaseEnd: "",   // Default lease end
     };
     setProperties([...properties, newProperty]);
     setIsAddPropertyOpen(false);
