@@ -7,11 +7,8 @@ const Index = () => {
       <main className="flex-grow flex flex-col items-center justify-center p-4">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-fade-in mb-8">
-            GetARent.com
+            RentEasy
           </h1>
-          <p className="text-xl text-gray-700 mb-12 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Your one-stop platform for seamless property management and rental solutions
-          </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <Link 
@@ -21,9 +18,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Tenant</h3>
-                <p className="text-gray-600 group-hover:text-white/90 transition-colors duration-300">
-                  Find your perfect rental property and manage your tenancy
-                </p>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" alt="Tenant" className="w-full h-48 object-cover rounded-lg" />
               </div>
             </Link>
 
@@ -34,9 +29,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Landlord</h3>
-                <p className="text-gray-600 group-hover:text-white/90 transition-colors duration-300">
-                  Efficiently manage your properties and tenants
-                </p>
+                <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b" alt="Landlord" className="w-full h-48 object-cover rounded-lg" />
               </div>
             </Link>
 
@@ -47,9 +40,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-white transition-colors duration-300">Agency</h3>
-                <p className="text-gray-600 group-hover:text-white/90 transition-colors duration-300">
-                  Streamline your property management business
-                </p>
+                <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334" alt="Agency" className="w-full h-48 object-cover rounded-lg" />
               </div>
             </Link>
           </div>
@@ -61,10 +52,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-800">About Us</h3>
-            <p className="text-gray-600 text-sm">
-              GetARent.com is your trusted partner in property management, connecting tenants, landlords, and agencies seamlessly.
-            </p>
+            <h3 className="font-semibold text-lg text-gray-800">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><Link to="/help" className="text-gray-600 hover:text-blue-600 text-sm">Help Center</Link></li>
+              <li><Link to="/contact" className="text-gray-600 hover:text-blue-600 text-sm">Contact Information</Link></li>
+            </ul>
           </div>
 
           {/* Quick Links */}
