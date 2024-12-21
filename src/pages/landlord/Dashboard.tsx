@@ -29,8 +29,8 @@ const mockProperties: Apartment[] = [
     status: "vacant",
     rentAmount: 3000,
     imageUrl: "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
-    tenantName: "",
-    leaseEnd: "",
+    tenantName: "Stephen Brown",
+    leaseEnd: "2025-03-30",
   },
   {
     id: "3",
@@ -47,8 +47,8 @@ const mockProperties: Apartment[] = [
     status: "vacant",
     rentAmount: 2200,
     imageUrl: "https://images.unsplash.com/photo-1559087978-f54f1b47d8d5?w=800&auto=format&fit=crop&q=60",
-    tenantName: "",
-    leaseEnd: "",
+    tenantName: "Harley Jay",
+    leaseEnd: "2025-12-31",
   },
   {
     id: "5",
