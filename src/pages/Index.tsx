@@ -14,19 +14,19 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               to="/tenant"
-              className="bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-blue-700 transition"
+              className="bg-white text-gray-800 text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-gray-100 hover:shadow-md transition-all"
             >
               Tenant
             </Link>
             <Link 
               to="/landlord"
-              className="bg-green-600 text-white text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-green-700 transition"
+              className="bg-white text-gray-800 text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-gray-100 hover:shadow-md transition-all"
             >
               Landlord
             </Link>
             <Link 
               to="/agency"
-              className="bg-purple-600 text-white text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-purple-700 transition"
+              className="bg-white text-gray-800 text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-gray-100 hover:shadow-md transition-all"
             >
               Agency
             </Link>
@@ -35,31 +35,31 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white/80 backdrop-blur-sm mt-auto py-8 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer className="bg-white/80 backdrop-blur-sm mt-auto py-4 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-800">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/help" className="text-gray-600 hover:text-blue-600 text-sm">Help Center</Link></li>
-              <li><Link to="/contact" className="text-gray-600 hover:text-blue-600 text-sm">Contact Information</Link></li>
-              <li><Link to="/about" className="text-gray-600 hover:text-blue-600 text-sm">About Us</Link></li>
+          <div className="space-y-2">
+            <h3 className="font-semibold text-gray-800">Quick Links</h3>
+            <ul className="space-y-1">
+              <li><Link to="/help" className="text-gray-600 hover:text-blue-600">Help Center</Link></li>
+              <li><Link to="/contact" className="text-gray-600 hover:text-blue-600">Contact Information</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-blue-600">About Us</Link></li>
             </ul>
           </div>
 
           {/* Legal */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-800">Legal</h3>
-            <ul className="space-y-2">
-              <li><Link to="/privacy" className="text-gray-600 hover:text-blue-600 text-sm">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-gray-600 hover:text-blue-600 text-sm">General Conditions</Link></li>
+          <div className="space-y-2">
+            <h3 className="font-semibold text-gray-800">Legal</h3>
+            <ul className="space-y-1">
+              <li><Link to="/privacy" className="text-gray-600 hover:text-blue-600">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-gray-600 hover:text-blue-600">General Conditions</Link></li>
             </ul>
           </div>
 
           {/* Social Media */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-800">Connect With Us</h3>
-            <div className="flex space-x-4">
+          <div className="space-y-2">
+            <h3 className="font-semibold text-gray-800">Connect With Us</h3>
+            <div className="flex space-x-3">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-400">
                 {/* Twitter Icon */}
               </a>
@@ -77,8 +77,8 @@ const Index = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <p className="text-center text-gray-500 text-sm">
+        <div className="mt-4 pt-4 border-t border-gray-200">
+          <p className="text-center text-gray-500 text-xs">
             © {new Date().getFullYear()} GetARent.com. All rights reserved.
           </p>
         </div>
