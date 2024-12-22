@@ -46,8 +46,7 @@ const TenantDashboard = () => {
             {/* Welcome Section */}
             <div className="flex justify-between items-center">
               <div>
-                <h1 className="text-3xl font-bold">Welcome Back!</h1>
-                <p className="text-gray-600">Here's what's happening with your rental</p>
+                <h1 className="text-3xl font-bold">Tenant Portal</h1>
               </div>
               <Button variant="outline" className="gap-2">
                 <Bell className="h-4 w-4" />
