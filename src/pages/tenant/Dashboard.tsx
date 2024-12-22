@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,36 +14,7 @@ import {
   Info,
   CheckCircle,
   Clock,
-  Home,
-  Search,
-  User,
 } from "lucide-react";
-
-const DashboardSidebar = () => (
-  <aside className="bg-white w-64 min-h-screen shadow">
-    <div className="p-6">
-      <h2 className="text-xl font-bold text-primary">GetARent.com</h2>
-    </div>
-    <nav className="mt-6 space-y-4">
-      <Button variant="ghost" className="w-full justify-start gap-2">
-        <Home className="h-5 w-5" />
-        Dashboard
-      </Button>
-      <Button variant="ghost" className="w-full justify-start gap-2">
-        <MessageSquare className="h-5 w-5" />
-        Message
-      </Button>
-      <Button variant="ghost" className="w-full justify-start gap-2">
-        <Search className="h-5 w-5" />
-        Search Properties
-      </Button>
-      <Button variant="ghost" className="w-full justify-start gap-2">
-        <User className="h-5 w-5" />
-        My Profile
-      </Button>
-    </nav>
-  </aside>
-);
 
 const TenantDashboard = () => {
   const { toast } = useToast();

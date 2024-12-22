@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PropertyCard } from "@/components/PropertyCard";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { PropertyForm } from "@/components/PropertyForm";
-import { Plus, Edit, Trash2, AlertCircle } from "lucide-react";
+import { Plus } from "lucide-react";
 import type { Apartment } from "@/types/apartment";
 
 const mockProperties: Apartment[] = [
@@ -29,35 +30,6 @@ const mockProperties: Apartment[] = [
     status: "vacant",
     rentAmount: 3000,
     imageUrl: "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Stephen Brown",
-    leaseEnd: "2025-03-30",
-  },
-  {
-    id: "3",
-    address: "789 Elm St, Apt 2C",
-    status: "occupied",
-    rentAmount: 1800,
-    imageUrl: "https://images.unsplash.com/photo-1557682226-e99b55f8fcf2?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Alice Smith",
-    leaseEnd: "2024-11-15",
-  },
-  {
-    id: "4",
-    address: "321 Oak St, Suite 5A",
-    status: "vacant",
-    rentAmount: 2200,
-    imageUrl: "https://images.unsplash.com/photo-1559087978-f54f1b47d8d5?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Harley Jay",
-    leaseEnd: "2025-12-31",
-  },
-  {
-    id: "5",
-    address: "654 Maple St, Apt 3B",
-    status: "occupied",
-    rentAmount: 2700,
-    imageUrl: "https://images.unsplash.com/photo-1596011500930-9b1b0c998f6b?w=800&auto=format&fit=crop&q=60",
-    tenantName: "Bob Johnson",
-    leaseEnd: "2025-01-15",
   },
 ];
 
@@ -72,15 +44,9 @@ const LandlordDashboard = () => {
       status: "vacant" as const,
       rentAmount: Number(propertyData.price),
       imageUrl: propertyData.images[0] || "https://images.unsplash.com/photo-1560449752-09cfece3660b?w=800&auto=format&fit=crop&q=60",
-      tenantName: "", // Default tenant name
-      leaseEnd: "",   // Default lease end
     };
     setProperties([...properties, newProperty]);
     setIsAddPropertyOpen(false);
-  };
-
-  const handleDeleteProperty = (id: string) => {
-    setProperties(properties.filter((property) => property.id !== id));
   };
 
   return (
@@ -108,71 +74,11 @@ const LandlordDashboard = () => {
               </DialogContent>
             </Dialog>
           </div>
-          <table className="w-full table-auto bg-white shadow rounded-lg overflow-hidden">
-            <thead className="bg-gray-100 border-b">
-              <tr>
-                <th className="text-left py-3 px-4">Address</th>
-                <th className="text-left py-3 px-4">Status</th>
-                <th className="text-left py-3 px-4">Rent</th>
-                <th className="text-left py-3 px-4">Tenant</th>
-                <th className="text-left py-3 px-4">Lease End</th>
-                <th className="text-left py-3 px-4">Notifications</th>
-                <th className="text-left py-3 px-4">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {properties.map((property) => (
-                <tr key={property.id} className="border-b hover:bg-gray-50">
-                  <td className="py-3 px-4">{property.address}</td>
-                  <td className="py-3 px-4">
-                    <span
-                      className={`px-2 py-1 rounded text-sm font-medium ${
-                        property.status === "occupied"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-yellow-100 text-yellow-800"
-                      }`}
-                    >
-                      {property.status}
-                    </span>
-                  </td>
-                  <td className="py-3 px-4">${property.rentAmount}</td>
-                  <td className="py-3 px-4">
-                    {property.tenantName || "N/A"}
-                  </td>
-                  <td className="py-3 px-4">
-                    {property.leaseEnd || "N/A"}
-                  </td>
-                  <td className="py-3 px-4">
-                    {property.leaseEnd &&
-                      new Date(property.leaseEnd) < new Date() && (
-                        <span className="flex items-center text-red-600">
-                          <AlertCircle className="h-4 w-4 mr-1" />
-                          Lease expired
-                        </span>
-                      )}
-                    {!property.leaseEnd && (
-                      <span className="text-gray-500">No notifications</span>
-                    )}
-                  </td>
-                  <td className="py-3 px-4 flex space-x-4">
-                    <Button
-                      variant="ghost"
-                      className="p-1 text-blue-600 hover:bg-blue-100"
-                    >
-                      <Edit className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      className="p-1 text-red-600 hover:bg-red-100"
-                      onClick={() => handleDeleteProperty(property.id)}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {properties.map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))}
+          </div>
         </main>
       </div>
     </SidebarProvider>
