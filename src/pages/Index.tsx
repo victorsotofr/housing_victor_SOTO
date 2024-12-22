@@ -41,7 +41,7 @@ const Index: React.FC = () => {
       <main className="flex-grow flex flex-col items-center justify-center p-4">
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent mb-6">
-            GetARent.com
+            getarent.com
           </h1>
           <p className="text-lg text-gray-600">RentEasy</p>
         </div>
@@ -53,7 +53,7 @@ const Index: React.FC = () => {
           {/* Logo */}
           <div className="space-y-4">
             <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent">
-              GetARent.com
+              getarent.com
             </div>
           </div>
 
@@ -91,7 +91,7 @@ const Index: React.FC = () => {
         {/* Copyright */}
         <div className="mt-4 pt-4 border-t border-gray-200">
           <p className="text-center text-gray-500 text-xs">
-            © {new Date().getFullYear()} GetARent.com. All rights reserved.
+            © {new Date().getFullYear()} getarent.com. All rights reserved.
           </p>
         </div>
       </footer>
