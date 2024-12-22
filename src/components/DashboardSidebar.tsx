@@ -2,8 +2,8 @@ import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
-  SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -38,14 +38,14 @@ export function DashboardSidebar() {
   const location = useLocation();
   
   let menuItems = getTenantMenuItems();
-  let roleLabel = "Tenant Portal";
+  let roleLabel = "getarent-Tenant";
   
   if (location.pathname.includes('landlord')) {
     menuItems = getLandlordMenuItems();
-    roleLabel = "Landlord Portal";
+    roleLabel = "getarent-Landlord";
   } else if (location.pathname.includes('agency')) {
     menuItems = getAgencyMenuItems();
-    roleLabel = "Agency Portal";
+    roleLabel = "getarent-Agency";
   }
 
   return (
