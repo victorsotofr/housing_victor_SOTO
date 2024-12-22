@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Index: React.FC = () => {
   return (
@@ -12,12 +18,22 @@ const Index: React.FC = () => {
           >
             Create an Account
           </Link>
-          <Link
-            to="/signin" // Navigate to the Sign In page
-            className="text-purple-500 font-bold hover:text-purple-600 transition-all"
-          >
-            Sign In
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-purple-500 font-bold hover:text-purple-600 transition-all">
+              Sign In
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-32">
+              <DropdownMenuItem asChild>
+                <Link to="/tenant" className="cursor-pointer">Tenant</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/landlord" className="cursor-pointer">Landlord</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/agency" className="cursor-pointer">Agency</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </header>
 
