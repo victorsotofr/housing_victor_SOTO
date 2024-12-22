@@ -59,20 +59,26 @@ const Index = () => {
           {/* Social Media */}
           <div className="space-y-2">
             <h3 className="font-semibold text-gray-800">Connect With Us</h3>
-            <div className="flex space-x-3">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-400">
-                {/* Twitter Icon */}
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600">
-                {/* Facebook Icon */}
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500">
-                {/* LinkedIn Icon */}
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-pink-600">
-                {/* Instagram Icon */}
-              </a>
-            </div>
+            <ul className="space-y-1">
+              <li>
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-600 hover:text-blue-600"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:contact@getarent.com" 
+                  className="text-gray-600 hover:text-blue-600"
+                >
+                  Mail
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
