@@ -7,6 +7,7 @@ import TenantDashboard from "./pages/tenant/Dashboard";
 import LandlordDashboard from "./pages/landlord/Dashboard";
 import AgencyDashboard from "./pages/agency/Dashboard";
 import Index from "./pages/Index";
+import SignIn from "./pages/SignIn"; // Import the new SignIn component
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/signin" element={<SignIn />} /> {/* Add the SignIn route */}
           <Route path="/tenant" element={<TenantDashboard />} />
           <Route path="/landlord" element={<LandlordDashboard />} />
           <Route path="/agency" element={<AgencyDashboard />} />
