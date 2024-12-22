@@ -59,8 +59,7 @@ const LandlordDashboard = () => {
         <main className="flex-1 p-8">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h1 className="text-3xl font-bold">My Properties</h1>
-              <p className="text-gray-600">Manage your rental properties</p>
+              <h1 className="text-3xl font-bold">Landlord Portal</h1>
             </div>
             <Dialog open={isAddPropertyOpen} onOpenChange={setIsAddPropertyOpen}>
               <DialogTrigger asChild>
