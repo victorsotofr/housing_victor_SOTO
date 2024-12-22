@@ -22,15 +22,15 @@ const Index: React.FC = () => {
             <DropdownMenuTrigger className="text-purple-500 font-bold hover:text-purple-600 transition-all">
               Sign In
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48"> {/* Increased width from w-32 to w-48 */}
-              <DropdownMenuItem asChild className="py-3"> {/* Added more padding */}
-                <Link to="/tenant" className="cursor-pointer">Tenant</Link>
+            <DropdownMenuContent className="w-48">
+              <DropdownMenuItem className="py-3">
+                <Link to="/tenant" className="w-full cursor-pointer">Tenant</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild className="py-3">
-                <Link to="/landlord" className="cursor-pointer">Landlord</Link>
+              <DropdownMenuItem className="py-3">
+                <Link to="/landlord" className="w-full cursor-pointer">Landlord</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild className="py-3">
-                <Link to="/agency" className="cursor-pointer">Agency</Link>
+              <DropdownMenuItem className="py-3">
+                <Link to="/agency" className="w-full cursor-pointer">Agency</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
