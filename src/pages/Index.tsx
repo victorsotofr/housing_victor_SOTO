@@ -4,17 +4,17 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
-      <header className="flex justify-end items-center p-4 bg-white/80 backdrop-blur-sm shadow-md">
+      <header className="flex justify-end items-center p-4 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="flex gap-4">
           <Link 
             to="/signup"
-            className="text-black font-bold hover:text-purple-500 transition-all"
+            className="text-black hover:text-purple-500 transition-all"
           >
             Create an Account
           </Link>
           <Link 
             to="/signin"
-            className="text-black font-bold hover:text-purple-500 transition-all"
+            className="text-purple-500 font-bold hover:text-purple-600 transition-all"
           >
             Sign In
           </Link>
