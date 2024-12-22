@@ -46,8 +46,7 @@ const AgencyDashboard = () => {
         <DashboardSidebar />
         <main className="flex-1 p-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold">Agency Portfolio</h1>
-            <p className="text-gray-600">Manage properties and tenants</p>
+            <h1 className="text-3xl font-bold">Agency Portal</h1>
           </div>
 
           {/* Analytics Overview */}
