@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { PropertyCard } from "@/components/PropertyCard";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { PropertyForm } from "@/components/PropertyForm";
-import { Plus } from "lucide-react";
+import { Plus, Edit, Trash2, AlertCircle } from "lucide-react";
 import type { Apartment } from "@/types/apartment";
 
 const mockProperties: Apartment[] = [
@@ -49,6 +48,10 @@ const LandlordDashboard = () => {
     setIsAddPropertyOpen(false);
   };
 
+  const handleDeleteProperty = (id: string) => {
+    setProperties(properties.filter((property) => property.id !== id));
+  };
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
@@ -74,11 +77,71 @@ const LandlordDashboard = () => {
               </DialogContent>
             </Dialog>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {properties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
-          </div>
+          <table className="w-full table-auto bg-white shadow rounded-lg overflow-hidden">
+            <thead className="bg-gray-100 border-b">
+              <tr>
+                <th className="text-left py-3 px-4">Address</th>
+                <th className="text-left py-3 px-4">Status</th>
+                <th className="text-left py-3 px-4">Rent</th>
+                <th className="text-left py-3 px-4">Tenant</th>
+                <th className="text-left py-3 px-4">Lease End</th>
+                <th className="text-left py-3 px-4">Notifications</th>
+                <th className="text-left py-3 px-4">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {properties.map((property) => (
+                <tr key={property.id} className="border-b hover:bg-gray-50">
+                  <td className="py-3 px-4">{property.address}</td>
+                  <td className="py-3 px-4">
+                    <span
+                      className={`px-2 py-1 rounded text-sm font-medium ${
+                        property.status === "occupied"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-yellow-100 text-yellow-800"
+                      }`}
+                    >
+                      {property.status}
+                    </span>
+                  </td>
+                  <td className="py-3 px-4">${property.rentAmount}</td>
+                  <td className="py-3 px-4">
+                    {property.tenantName || "N/A"}
+                  </td>
+                  <td className="py-3 px-4">
+                    {property.leaseEnd || "N/A"}
+                  </td>
+                  <td className="py-3 px-4">
+                    {property.leaseEnd &&
+                      new Date(property.leaseEnd) < new Date() && (
+                        <span className="flex items-center text-red-600">
+                          <AlertCircle className="h-4 w-4 mr-1" />
+                          Lease expired
+                        </span>
+                      )}
+                    {!property.leaseEnd && (
+                      <span className="text-gray-500">No notifications</span>
+                    )}
+                  </td>
+                  <td className="py-3 px-4 flex space-x-4">
+                    <Button
+                      variant="ghost"
+                      className="p-1 text-blue-600 hover:bg-blue-100"
+                    >
+                      <Edit className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      className="p-1 text-red-600 hover:bg-red-100"
+                      onClick={() => handleDeleteProperty(property.id)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </main>
       </div>
     </SidebarProvider>
