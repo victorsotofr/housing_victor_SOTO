@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
       <header className="flex justify-end items-center p-4 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="flex gap-4">
-          <Link 
+          <Link
             to="/signup"
             className="text-black hover:text-purple-500 transition-all"
           >
             Create an Account
           </Link>
-          <Link 
-            to="/signin"
+          <Link
+            to="/signin" // Navigate to the Sign In page
             className="text-purple-500 font-bold hover:text-purple-600 transition-all"
           >
             Sign In
