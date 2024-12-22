@@ -3,6 +3,27 @@ import { Link } from "react-router-dom";
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-purple-50">
+      {/* Header with Buttons */}
+      <header className="flex justify-between items-center p-4 bg-white/80 backdrop-blur-sm shadow-md">
+        <div className="text-xl font-bold bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent">
+          GetARent.com
+        </div>
+        <div className="flex gap-4">
+          <Link 
+            to="/signup"
+            className="bg-purple-500 text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-purple-600 transition-all"
+          >
+            Create an Account
+          </Link>
+          <Link 
+            to="/signin"
+            className="bg-purple-500 text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-purple-600 transition-all"
+          >
+            Sign In
+          </Link>
+        </div>
+      </header>
+
       {/* Main Content */}
       <main className="flex-grow flex flex-col items-center justify-center p-4">
         <div className="text-center max-w-2xl mx-auto">
@@ -37,47 +58,40 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-white/80 backdrop-blur-sm mt-auto py-4 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
-          {/* Quick Links */}
+          {/* Logo */}
+          <div className="space-y-4">
+            <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent">
+              GetARent.com
+            </div>
+          </div>
+
+          {/* Product Section */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-gray-800">Quick Links</h3>
+            <h3 className="font-semibold text-black">Product</h3>
             <ul className="space-y-1">
-              <li><Link to="/help" className="text-gray-600 hover:text-blue-600">Help Center</Link></li>
-              <li><Link to="/contact" className="text-gray-600 hover:text-blue-600">Contact Information</Link></li>
-              <li><Link to="/about" className="text-gray-600 hover:text-blue-600">About Us</Link></li>
+              <li><Link to="/features" className="text-gray-600 hover:text-blue-600">Features</Link></li>
+              <li><Link to="/pricing" className="text-gray-600 hover:text-blue-600">Pricing</Link></li>
+              <li><Link to="/documentation" className="text-gray-600 hover:text-blue-600">Documentation</Link></li>
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Company Section */}
           <div className="space-y-2">
-            <h3 className="font-semibold text-gray-800">Legal</h3>
+            <h3 className="font-semibold text-black">Company</h3>
+            <ul className="space-y-1">
+              <li><Link to="/about" className="text-gray-600 hover:text-blue-600">About</Link></li>
+              <li><Link to="/blog" className="text-gray-600 hover:text-blue-600">Blog</Link></li>
+              <li><Link to="/careers" className="text-gray-600 hover:text-blue-600">Careers</Link></li>
+            </ul>
+          </div>
+
+          {/* Legal Section */}
+          <div className="space-y-2">
+            <h3 className="font-semibold text-black">Legal</h3>
             <ul className="space-y-1">
               <li><Link to="/privacy" className="text-gray-600 hover:text-blue-600">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-gray-600 hover:text-blue-600">General Conditions</Link></li>
-            </ul>
-          </div>
-
-          {/* Social Media */}
-          <div className="space-y-2">
-            <h3 className="font-semibold text-gray-800">Connect With Us</h3>
-            <ul className="space-y-1">
-              <li>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-gray-600 hover:text-blue-600"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="mailto:contact@getarent.com" 
-                  className="text-gray-600 hover:text-blue-600"
-                >
-                  Mail
-                </a>
-              </li>
+              <li><Link to="/terms" className="text-gray-600 hover:text-blue-600">Terms</Link></li>
+              <li><Link to="/license" className="text-gray-600 hover:text-blue-600">License</Link></li>
             </ul>
           </div>
         </div>
