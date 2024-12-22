@@ -3,21 +3,18 @@ import { Link } from "react-router-dom";
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-purple-50">
-      {/* Header with Buttons */}
-      <header className="flex justify-between items-center p-4 bg-white/80 backdrop-blur-sm shadow-md">
-        <div className="text-xl font-bold bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent">
-          GetARent.com
-        </div>
+      {/* Header */}
+      <header className="flex justify-end items-center p-4 bg-white/80 backdrop-blur-sm shadow-md">
         <div className="flex gap-4">
           <Link 
             to="/signup"
-            className="bg-purple-500 text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-purple-600 transition-all"
+            className="text-black font-bold hover:text-purple-500 transition-all"
           >
             Create an Account
           </Link>
           <Link 
             to="/signin"
-            className="bg-purple-500 text-white font-semibold py-2 px-4 rounded-md shadow hover:bg-purple-600 transition-all"
+            className="text-black font-bold hover:text-purple-500 transition-all"
           >
             Sign In
           </Link>
@@ -30,28 +27,7 @@ const Index = () => {
           <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent mb-6">
             GetARent.com
           </h1>
-          <p className="text-lg text-gray-600 mb-12">RentEasy</p>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              to="/tenant"
-              className="bg-white text-gray-800 text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-gray-100 hover:shadow-md transition-all"
-            >
-              Tenant
-            </Link>
-            <Link 
-              to="/landlord"
-              className="bg-white text-gray-800 text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-gray-100 hover:shadow-md transition-all"
-            >
-              Landlord
-            </Link>
-            <Link 
-              to="/agency"
-              className="bg-white text-gray-800 text-lg font-semibold py-3 px-6 rounded-md shadow hover:bg-gray-100 hover:shadow-md transition-all"
-            >
-              Agency
-            </Link>
-          </div>
+          <p className="text-lg text-gray-600">RentEasy</p>
         </div>
       </main>
 
