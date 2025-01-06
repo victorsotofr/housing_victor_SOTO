@@ -52,7 +52,7 @@ const Index = () => {
           <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-500 to-purple-800 bg-clip-text text-transparent mb-6">
             getarent.com
           </h1>
-          <p className="text-lg text-gray-600">RentEasy</p>
+          <p className="text-lg text-gray-600">Rent. Reward.</p>
         </div>
       </main>
 
