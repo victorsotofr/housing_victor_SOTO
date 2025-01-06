@@ -5,32 +5,36 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import SignInDialog from "@/components/SignInDialog";
+import { useState } from "react";
 
-const Index: React.FC = () => {
+const Index = () => {
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
       <header className="flex justify-end items-center p-4 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="flex gap-4">
-          <Link
-            to="/signup"
+          <button
+            onClick={() => setIsSignInOpen(true)}
             className="text-black hover:text-purple-500 transition-all"
           >
             Create an Account
-          </Link>
+          </button>
           <DropdownMenu>
             <DropdownMenuTrigger className="text-purple-500 font-bold hover:text-purple-600 transition-all">
               Sign In
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-32">
-              <DropdownMenuItem asChild>
-                <Link to="/tenant" className="cursor-pointer">Tenant</Link>
+              <DropdownMenuItem onClick={() => setIsSignInOpen(true)}>
+                <span className="w-full">Tenant</span>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/landlord" className="cursor-pointer">Landlord</Link>
+              <DropdownMenuItem onClick={() => setIsSignInOpen(true)}>
+                <span className="w-full">Landlord</span>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/agency" className="cursor-pointer">Agency</Link>
+              <DropdownMenuItem onClick={() => setIsSignInOpen(true)}>
+                <span className="w-full">Agency</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -95,6 +99,11 @@ const Index: React.FC = () => {
           </p>
         </div>
       </footer>
+
+      <SignInDialog
+        isOpen={isSignInOpen}
+        onClose={() => setIsSignInOpen(false)}
+      />
     </div>
   );
 };
