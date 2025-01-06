@@ -11,13 +11,18 @@ import { useState } from "react";
 const Index = () => {
   const [isSignInOpen, setIsSignInOpen] = useState(false);
 
+  const handleSignInClick = () => {
+    console.log("Opening sign in dialog");
+    setIsSignInOpen(true);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
       <header className="flex justify-end items-center p-4 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="flex gap-4">
           <button
-            onClick={() => setIsSignInOpen(true)}
+            onClick={handleSignInClick}
             className="text-black hover:text-purple-500 transition-all"
           >
             Create an Account
@@ -27,13 +32,13 @@ const Index = () => {
               Sign In
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-32">
-              <DropdownMenuItem onClick={() => setIsSignInOpen(true)}>
+              <DropdownMenuItem onSelect={handleSignInClick}>
                 <span className="w-full">Tenant</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setIsSignInOpen(true)}>
+              <DropdownMenuItem onSelect={handleSignInClick}>
                 <span className="w-full">Landlord</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setIsSignInOpen(true)}>
+              <DropdownMenuItem onSelect={handleSignInClick}>
                 <span className="w-full">Agency</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
